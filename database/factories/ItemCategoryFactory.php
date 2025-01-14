@@ -16,9 +16,12 @@ class ItemCategoryFactory extends Factory
      */
     public function definition(): array
     {
+        $user_ids = User::all()->pluck('id')->toArray();
+        
         return [
             'name'  => fake()->unique()->word(),
-            'description'   => fake()->realText(80)
+            'description'   => fake()->realText(80),
+            'user_id'   => fake()->randomElement($user_ids)
         ];
     }
 

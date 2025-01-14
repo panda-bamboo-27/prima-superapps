@@ -20,6 +20,7 @@ class ItemFactory extends Factory
     {
         $vendor_ids = Vendor::all()->pluck('id')->toArray();
         $item_category_ids = ItemCategory::all()->pluck('id')->toArray();
+        $user_ids = User::all()->pluck('id')->toArray();
         
         $vendor_item_code = "VI" . fake()->unique()->randomNumber(9,true);
         return [
@@ -30,7 +31,8 @@ class ItemFactory extends Factory
             'vendor_item_code'  => $vendor_item_code,
             'vendor_item_category' => fake()->jobTitle(),
             'vendor_id' => fake()->randomElement($vendor_ids),
-            'item_category_id' => fake()->randomElement($item_category_ids)
+            'item_category_id' => fake()->randomElement($item_category_ids),
+            'user_id'   => fake()->randomElement($user_ids),
         ];
     }
 

@@ -17,6 +17,8 @@ class VendorFactory extends Factory
     public function definition(): array
     {
         $vendor_code = "V". fake()->unique()->randomNumber(9,true);
+        $user_ids = User::all()->pluck('id')->toArray();
+        
         return [
             'vendor_code'   => $vendor_code,
             'vendor_name'   => fake()->company(),
@@ -24,6 +26,7 @@ class VendorFactory extends Factory
             'contact_phone_1' => fake()->phoneNumber(),
             'contact_phone_2' => fake()->phoneNumber(),
             'email' => fake()->companyEmail(),
+            'user_id'   => fake()->randomElement($user_ids)   
         ];
     }
 

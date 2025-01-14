@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        /*
         User::factory(10)->create();
 
         User::factory()->create([
@@ -35,5 +36,6 @@ class DatabaseSeeder extends Seeder
         Vendor::factory(10)->create();
         ItemCategory::factory(10)->create();
         Item::factory(60)->create();
+        */
     }
 }

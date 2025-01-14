@@ -4,9 +4,12 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
+use App\Http\Resources\VendorResource;
 
-class Vendor extends ResourceCollection
+class VendorCollection extends ResourceCollection
 {
+
+
     /**
      * Transform the resource collection into an array.
      *
@@ -14,6 +17,10 @@ class Vendor extends ResourceCollection
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'data'  => $this->collection->map(function($vendor) {
+                return new VendorResource($vendor);
+            })
+        ];
     }
 }
