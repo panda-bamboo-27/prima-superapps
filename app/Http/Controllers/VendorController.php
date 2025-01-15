@@ -64,7 +64,7 @@ class VendorController extends Controller
 
         $vendors->with('user');
 
-        if ($request->with_trashed) {
+        if ($request->with_trashed === 'yes') {
             $vendors->withTrashed();
         }
         
@@ -141,7 +141,7 @@ class VendorController extends Controller
         return response()->json([
             'message'   => 'Vendor successfully fetched.',
             'data'      => new VendorResource($vendor)
-        ], 422);
+        ], 200);
     }
 
     /**

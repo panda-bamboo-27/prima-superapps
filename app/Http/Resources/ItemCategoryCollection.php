@@ -4,9 +4,9 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
-use App\Http\Resources\VendorResource;
+use App\Http\Resources\ItemCategoryResource;
 
-class VendorCollection extends ResourceCollection
+class ItemCategoryCollection extends ResourceCollection
 {
 
 
@@ -18,8 +18,8 @@ class VendorCollection extends ResourceCollection
     public function toArray(Request $request): array
     {
         return [
-            'vendors'  => $this->collection->map(function($vendor) {
-                return new VendorResource($vendor);
+            'item_categories'  => $this->collection->map(function($itemCategory) {
+                return new ItemCategoryResource($itemCategory);
             }),
         ];
     }
